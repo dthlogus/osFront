@@ -1,0 +1,20 @@
+<form class="form mat-elevation-z8">
+    <h1>Excluindo técnico</h1>
+    <mat-form-field color="accent" class="full-width" appearance="outline">
+        <mat-label>Nome</mat-label>
+        <input disabled [(ngModel)]="tecnico.nome" name="nome" matInput>
+    </mat-form-field>
+
+    <mat-form-field color="accent" class="full-width" appearance="outline">
+        <mat-label>CPF</mat-label>
+        <input disabled mask="000.000.000-00" [(ngModel)]="tecnico.cpf" name="cpf" matInput>
+    </mat-form-field>
+
+    <mat-form-field color="accent" class="full-width" appearance="outline">
+        <mat-label>Telefone</mat-label>
+        <input disabled mask="(00) 00000-0000" [(ngModel)]="tecnico.telefone" name="telefone" matInput>
+    </mat-form-field>
+
+    <button class="mat-elevation-z8" mat-stroked-button color="accent" (click)="delete()">Deletar</button>
+    <button class="mat-elevation-z8" mat-stroked-button color="warn" (click)="cancel()">Cancelar</button>
+</form>

@@ -1,0 +1,23 @@
+<form class="form mat-elevation-z8">
+    <h1>Atualizando técnico</h1>
+    <mat-form-field color="accent" class="full-width" appearance="outline">
+        <mat-label>Nome</mat-label>
+        <input [(ngModel)]="tecnico.nome" [formControl]="nome" required maxlength="100" name="nome" matInput placeholder="Ex. Alan Turing">
+        <mat-error *ngIf="nome.invalid">{{errorValidName()}}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field color="accent" class="full-width" appearance="outline">
+        <mat-label>CPF</mat-label>
+        <input mask="000.000.000-00" [(ngModel)]="tecnico.cpf" [formControl]="cpf" required name="cpf" maxlength="14" matInput placeholder="000.000.000-00">
+        <mat-error *ngIf="cpf.invalid">{{errorValidCpf()}}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field color="accent" class="full-width" appearance="outline">
+        <mat-label>Telefone</mat-label>
+        <input mask="(00) 00000-0000" [(ngModel)]="tecnico.telefone" [formControl]="telefone" required maxlength="15" name="telefone" matInput placeholder="Ex. (00) 90000-0000)">
+        <mat-error *ngIf="telefone.invalid">{{errorValidTelefone()}}</mat-error>
+    </mat-form-field>
+
+    <button class="mat-elevation-z8" [disabled]="errorValidName() || errorValidCpf() || errorValidTelefone()" mat-stroked-button color="accent" (click)="update()">Atualizar</button>
+    <button class="mat-elevation-z8" mat-stroked-button color="warn" (click)="cancel()">Cancelar</button>
+</form>
